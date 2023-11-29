@@ -6,46 +6,30 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 05:34:03 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/11/21 22:23:25 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/11/29 01:30:11 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
+#include <string>
+#include <cctype>
 #include <stdio.h>
 #include "Phonebook.hpp"
 
+bool isWhitespaceHelper(unsigned char c) {
+    return std::isspace(c);
+}
+
+bool isWhitespace(const std::string& str) {
+    return std::all_of(str.begin(), str.end(), isWhitespaceHelper);
+}   
+
 Phonebook::Phonebook()
 {
-    index = 0;
+    NumContact = 0;
 }
-void printWithMaxWidth(std::string str, size_t length)
-{        
-    for (size_t i = 0; i < length; ++i)
-    {
-        if (i < str.length())
-        {
-            std::cout << str[i];
-        }
-        else
-        {
-            std::cout << '.';
-        }
-    }
-}
-
-void prinTruncatedWithMaxWidth(std::string str, size_t length)
-{
-    if (str.length() <= length)
-    {
-        std::cout << std::setw(length) << std::right << str;
-    }
-    else
-    {
-        printWithMaxWidth(str.substr(0, length - 1), length);
-    }
-}
-
 void Phonebook::Cmd()
 {
     std::string input;
@@ -64,24 +48,23 @@ void Phonebook::Cmd()
 void Phonebook::AddCmd()
 {
     std::string var;
-    if (index > 7)
-        std::cout << "Phonebook contact is full YOUR DAte will be lost  " << std::endl;
+    if (NumContact > 7)
+        std::cout << "Phonebook contact is full Sadge ! your DAta will be lost  " << std::endl;
 
     while (true)
     {
         std::cout << "Enter the first name: ";
         std::getline(std::cin, var);
         if (std::cin.eof())
-            ExitCmd();
-        if (!var.empty())
+            break;
+        if (!var.empty() && !isWhitespace(var))
         {
-            contact[index % 8].setName(var);
+            contact[NumContact % 8].setName(var);
             break;
         }
         else
         {
-            std::cout << "First name cannot be empty. Try again.\n";
-        }
+ std::cout << "First name cannot be empty  Try again.\n";        }
     }
 
     while (true)
@@ -89,83 +72,81 @@ void Phonebook::AddCmd()
         std::cout << "Enter the first last name: ";
         std::getline(std::cin, var);
         if (std::cin.eof())
-            ExitCmd();
-        if (!var.empty())
+            break;
+       if (!var.empty() && !isWhitespace(var))
         {
-            contact[index % 8].setLastname(var);
+            contact[NumContact % 8].setLastname(var);
             break;
         }
         else
         {
-            std::cout << "First last name cannot be empty. Try again.\n";
+             std::cout << "Last name cannot be empty  Try again.\n";
         }
     }
 
-    while (true)
+while (true)
+{
+    std::cout << "Enter the first Nickname: ";
+    std::getline(std::cin, var);
+    if (std::cin.eof())
+        break;
+    if (!var.empty() && !isWhitespace(var))
     {
-        std::cout << "Enter the first Nickname: ";
-        std::getline(std::cin, var);
-        if (std::cin.eof())
-            ExitCmd();
-        if (!var.empty())
-        {
-            contact[index % 8].setNickname(var);
-            break;
-        }
-        else
-        {
-            std::cout << "Nick name cannot be empty. Try again.\n";
-        }
+        contact[NumContact % 8].setNickname(var);
+        break;
     }
+    else
+    {
+        std::cout << "Nickname cannot be empty  Try again.\n";
+    }
+}
 
     while (true)
     {
         std::cout << "Enter the Number: ";
         std::getline(std::cin, var);
         if (std::cin.eof())
-            ExitCmd();
-        if (!var.empty())
+            break;
+        if (!var.empty() && !isWhitespace(var))
         {
-            contact[index % 8].setNumber(var);
+            contact[NumContact % 8].setNumber(var);
             break;
         }
         else
         {
-            std::cout << "Number cannot be empty. Try again.\n";
-        }
+ std::cout << "Number cannot be empty  Try again.\n";        }
     }
     while (true)
     {
         std::cout << "Enter your secret: ";
         std::getline(std::cin, var);
         if (std::cin.eof())
-            ExitCmd();
-        if (!var.empty())
+            break;
+         if (!var.empty() && !isWhitespace(var))
         {
-            contact[index % 8].set_Secret(var);
+            contact[NumContact % 8].set_Secret(var);
             break;
         }
         else
         {
-            std::cout << "Secret cannot be empty. Try again.\n";
-        }
+ std::cout << "Secret cannot be empty Try again.\n";        }
     }
 
     std::cout << "Contact added successfully!\n";
 
-    index++;
+    NumContact++;
     Cmd();
 }
 
 void Phonebook::SearchCmd()
 {
 
-    std::string amount;
+    std::string index;
     std::cout << " ___________________________________________ \n";
-    std::cout << "|     Index|First Name| Last Name|  Nickname|\n";
+    std::cout << "|     NumContact|First Name| Last Name|  Nickname|\n";
     std::cout << "|----------|----------|----------|----------|\n";
     int i = 0;
-    while (i < index && i < 8)
+    while (i < NumContact && i < 8) //check  not exceed 8 for overwriting data
     {
         std::cout << "|" << std::setw(10) << i + 1 << "|"
                   << std::setw(10) << contact[i].getName() << "|"
@@ -174,25 +155,25 @@ void Phonebook::SearchCmd()
         i++;
     }
     std::cout << " ___________________________________________ \n";
-    while (index)
+    while (NumContact)
     {
-        std::cout << "enter the index _";
-        getline(std::cin, amount);
+        std::cout << "enter the NumContact _";
+        getline(std::cin, index);
         if (std::cin.eof())
               ExitCmd();
-        if (index && (amount.length() != 1 || amount[0] < '1' || (unsigned int)amount[0] > index + '0'))
-            printf("invalid index  sadge\n");
+        if (NumContact && (index.length() != 1 || index[0] < '1' || (unsigned int)index[0] > NumContact + '0'))
+            printf("invalid NumContact  sadge\n");
    
-        else if ((amount[0] >= '1' && amount[0] <= '9' && amount.length() == 1) && ((unsigned int)amount[0] - '0' <= index))
+        else if ((index[0] >= '1' && index[0] <= '9' && index.length() == 1) && ((unsigned int)index[0] - '0' <= NumContact))
            break;
     }
-    if(index)
+    if(NumContact)
         {
-                    std::cout<< "First Name : "<<contact[amount[0] - '1'].getName()<<std::endl;
-        std::cout<< "Last Name : "<<contact[amount[0] - '1'].getLastname()<<std::endl;
-        std::cout<< "Nick Name : "<<contact[amount[0] - '1'].getNickname()<<std::endl;
-        std::cout<< "Phone Number : "<<contact[amount[0] - '1'].getNumber()<<std::endl;
-        std::cout<< "Darkest Secret : "<<contact[amount[0] - '1'].get_Secret()<<std::endl;
+                    std::cout<< "First Name : "<<contact[index[0] - '1'].getName()<<std::endl;
+        std::cout<< "Last Name : "<<contact[index[0] - '1'].getLastname()<<std::endl;
+        std::cout<< "Nick Name : "<<contact[index[0] - '1'].getNickname()<<std::endl;
+        std::cout<< "Phone Number : "<<contact[index[0] - '1'].getNumber()<<std::endl;
+        std::cout<< "Darkest Secret : "<<contact[index[0] - '1'].get_Secret()<<std::endl;
             
 
         }
@@ -206,6 +187,7 @@ Phonebook::~Phonebook()
 
 void Phonebook::ExitCmd()
 {
+    printf("dsfsf\n");
         Phonebook::~Phonebook();
         exit(0);
 }

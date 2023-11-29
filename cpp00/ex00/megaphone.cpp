@@ -1,13 +1,13 @@
 #include <iostream>
 
-char to_upper(char c) {
+char to_upper(char c) { // to upper function
     if (c >= 'a' && c <= 'z') {
         c -= 32;
     }
     return c;
 }
 
-void megaphone(char *str) {
+void megaphone(char *str) { // megaphone function 
     int i = 0;
 
     while (str[i]) {
@@ -16,7 +16,7 @@ void megaphone(char *str) {
     }
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) { // main fucntion 
     int i = 1;
     if (argc == 1) {
         std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *"<<std::endl;

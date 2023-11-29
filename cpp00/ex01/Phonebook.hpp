@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:46:39 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/11/12 13:26:08 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/11/29 00:11:56 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,16 @@
 #include "contact.hpp"
 #include <iomanip>
 #include <stdlib.h>
-#include<iostream>
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <algorithm>
 
 class Phonebook {
 
 private:
     Contact contact[8];
- unsigned int index;
+ unsigned int NumContact;
 public:
         Phonebook();
         ~Phonebook();      
@@ -32,6 +35,5 @@ public:
         void ExitCmd();
         
 };
-
-
+bool isWhitespace(const std::string& str);
 #endif
