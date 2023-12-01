@@ -2,7 +2,6 @@
 
             void randomChump( std::string name )
     {
-        Zombie siiZombie(name);     //  instance of the Zombie class 
+        Zombie siiZombie(name);
         siiZombie.anounce(); 
-        //deconstractor auto
     }

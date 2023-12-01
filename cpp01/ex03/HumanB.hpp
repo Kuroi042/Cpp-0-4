@@ -14,7 +14,6 @@ class HumanB
         Weapon *weapon;
         std::string Name;
     public:
-        HumanB();
         HumanB(std::string name);
         void attack();
         const std::string&       getName();

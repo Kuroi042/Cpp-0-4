@@ -4,7 +4,7 @@
 
 HumanA::HumanA(std::string HumanName, Weapon& humanWeapon) : weapon(humanWeapon)
 {
-    std::cout << "HumanA is Spawned\n" << endl;
+    std::cout << "HumanA is Spawned\n";
     name = HumanName;
 }
 void HumanA::attack()

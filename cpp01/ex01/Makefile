@@ -1,4 +1,4 @@
-NAME = zebii
+NAME = 	HordeZmb
 
 CC = c++  
 CFLAGS = -Wall -Wextra -Werror  -g -std=c++98   # -fsanitize=thread -g 

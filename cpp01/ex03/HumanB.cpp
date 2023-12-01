@@ -2,22 +2,22 @@
 
 
 
-HumanB::HumanB()
-{
-	std::cout << "HumanB : is Spawned " << std::endl;
-}
+// HumanB::HumanB()
+// {
+// 	std::cout << "HumanB : is Spawned " << std::endl;
+// }
 
 HumanB::HumanB(std::string name  )
 {
     weapon = NULL;
-    std::cout<<"HumanB is Spawned\n"<<endl;
+    std::cout<<"HumanB is Spawned\n";
     Name = name;
 }
 
 void HumanB::attack()
     {
         if(weapon!=NULL && weapon->getType().length()>0)
-        std::cout << Name << " is using : " << (*weapon).getType() <<" to attack\n";
+        std::cout << Name << " is using : " << weapon->getType() <<" to attack\n";
         else 
             std::cout<< Name << " attacks with bare hands  " <<std::endl;
     }

@@ -12,9 +12,6 @@
 
 #include <iostream>
 #include <iomanip>
-#include <algorithm>
-#include <string>
-#include <cctype>
 #include <stdio.h>
 #include "Phonebook.hpp"
 
@@ -48,10 +45,10 @@ void Phonebook::Cmd()
 void Phonebook::AddCmd()
 {
     std::string var;
-    if (NumContact > 7)
+    if (NumContact > 7) // check for number of contact
         std::cout << "Phonebook contact is full Sadge ! your DAta will be lost  " << std::endl;
 
-    while (true)
+    while (true) // 
     {
         std::cout << "Enter the first name: ";
         std::getline(std::cin, var);
@@ -155,7 +152,7 @@ void Phonebook::SearchCmd()
         i++;
     }
     std::cout << " ___________________________________________ \n";
-    while (NumContact)
+    while (NumContact) //INDEX
     {
         std::cout << "enter the NumContact _";
         getline(std::cin, index);
@@ -187,7 +184,6 @@ Phonebook::~Phonebook()
 
 void Phonebook::ExitCmd()
 {
-    printf("dsfsf\n");
         Phonebook::~Phonebook();
         exit(0);
 }

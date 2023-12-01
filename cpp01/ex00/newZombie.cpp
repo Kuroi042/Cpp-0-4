@@ -2,7 +2,6 @@
 
     Zombie* newZombie( std::string name )
     {
-            Zombie* zombie = new Zombie(name);  // constractor 
+            Zombie* zombie = new Zombie(name);
             return zombie;
-           
     }
