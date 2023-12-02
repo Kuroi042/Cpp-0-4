@@ -17,7 +17,3 @@ void HumanA::attack()
             return name;
 
         }
-        void HumanA::setName(std::string Newname)
-        {
-            name = Newname;
-        }

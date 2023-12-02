@@ -1,12 +1,6 @@
 #include "HumanB.hpp"
 
 
-
-// HumanB::HumanB()
-// {
-// 	std::cout << "HumanB : is Spawned " << std::endl;
-// }
-
 HumanB::HumanB(std::string name  )
 {
     weapon = NULL;

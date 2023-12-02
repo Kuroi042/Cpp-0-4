@@ -1,25 +1,20 @@
-NAME = replace
+NAME = 	replace
 
-SRCS = main.cpp  
+CC = c++  
+CFLAGS = -Wall -Wextra -Werror  -g -std=c++98   # -fsanitize=thread -g 
 
-OBJS = $(SRCS:.cpp=.o)
-
-CC = c++ 
-
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+SRC_PS = main.cpp ft_replace.cpp 
+OBJS_C = ${SRC_PS:.cpp=.o} 
 
 all: $(NAME)
+$(NAME):  $(OBJS_C)
+	@$(CC)  $(CFLAGS) $(OBJS_C) -o $(NAME)
 
-%.o: %.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+clean :
+	rm -rf  $(OBJS_C)
 
-clean: 
-	rm -rf $(OBJS)
-
-fclean: clean
+fclean : clean
 	rm -rf $(NAME)
 
-re: fclean all
+re : fclean all

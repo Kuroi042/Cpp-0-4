@@ -1,8 +1,5 @@
 #include "Weapon.hpp"
 
-// Weapon::Weapon()
-//         {
-//         }
 
 Weapon::Weapon(std::string text)
 {
@@ -11,11 +8,12 @@ Weapon::Weapon(std::string text)
 
 }
  
- const   std::string& Weapon::getType() // reference of return value
- { 
-        return Type;
-}
 void Weapon::setType(std::string newType)
 {
         Type  = newType;
+}
+
+ const   std::string& Weapon::getType() // reference of return value
+{ 
+        return Type;
 }

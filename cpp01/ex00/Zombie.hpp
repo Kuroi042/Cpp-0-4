@@ -1,6 +1,6 @@
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
-using namespace std;
+
 
 #include <iostream>
 
@@ -9,7 +9,6 @@ class Zombie
     private:
              std::string name;
     public:
-
             Zombie(std::string newName); // constractor 
             ~Zombie();
             void anounce(void);

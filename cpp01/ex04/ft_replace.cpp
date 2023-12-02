@@ -1,35 +1,14 @@
-#ifndef SEDV2_HPP
-#define SEDV2_HPP
+#include "Replace.hpp"
 
-#include <iostream>
-#include <fstream>
-
-class SedV2
-{
-private:
-    std::string _inFile;
-    std::string _outFile;
-
-public:
-    SedV2( std::string filename);
-    ~SedV2();
-
-    void            replace( std::string s1, std::string s2);
-};
-
-#endif // SEDV2_HPP
-
-#include "SedV2.hpp"
-
-SedV2::SedV2(std::string filename) : _inFile(filename){
+Replace::Replace(std::string filename) : _inFile(filename){
     this->_outFile = this->_inFile + ".replace";
 }
 
-SedV2::~SedV2 ( void ) {
+Replace::~Replace ( void ) {
 
 }
 
-void            SedV2::replace( std::string toFind, std::string replace) {
+void            Replace::replace( std::string toFind, std::string replace) {
     std::ifstream   ifs(this->_inFile);
     if (ifs.is_open()) {
         std::string content;
@@ -52,19 +31,4 @@ void            SedV2::replace( std::string toFind, std::string replace) {
         std::cerr << "Unable to open the file." << std::endl;
         exit(EXIT_FAILURE);
     }
-}
-
-
-#include "SedV2.hpp"
-
-int main ( int ac, char **av )
-{
-    if (ac != 4) {
-        std::cerr << "Usage: ./SedV2 <filename> <to_find> <replace>." << std::endl;
-        return EXIT_FAILURE;
-    } else {
-        SedV2   sed2(av[1]);
-        sed2.replace(av[2], av[3]);
-    }
-    return EXIT_SUCCESS;
 }

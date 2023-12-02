@@ -15,7 +15,6 @@ class HumanA
         HumanA(std::string HumanANameWeapon , Weapon& humanAWeapon);
         void attack();
         const std::string& getName();
-        void setName(std::string Newname);
 };
 
 #endif
