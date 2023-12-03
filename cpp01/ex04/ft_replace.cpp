@@ -1,19 +1,18 @@
 #include "Replace.hpp"
 
-Replace::Replace(std::string filename) : _inFile(filename){
-    this->_outFile = this->_inFile + ".replace";
+Replace::Replace(std::string filename) : inFile(filename){
+    this->outFile = this->inFile + ".replace";
 }
 
-Replace::~Replace ( void ) {
-
+Replace::~Replace(){
 }
 
 void            Replace::replace( std::string toFind, std::string replace) {
-    std::ifstream   ifs(this->_inFile);
+    std::ifstream   ifs(this->inFile);
     if (ifs.is_open()) {
         std::string content;
         if (std::getline(ifs, content, '\0')) {
-            std::ofstream   ofs(this->_outFile);
+            std::ofstream   ofs(this->outFile);
             size_t          pos = content.find(toFind);
             while ( pos != std::string::npos ) {
                 content.erase(pos, toFind.length());

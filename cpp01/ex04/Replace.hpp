@@ -8,13 +8,12 @@
 class Replace
 {
 private:
-    std::string _inFile;
-    std::string _outFile;
+    std::string inFile;
+    std::string outFile;
 
 public:
     Replace( std::string filename);
     ~Replace();
-
     void   replace( std::string s1, std::string s2);
 };
 
