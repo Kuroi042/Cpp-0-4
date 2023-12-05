@@ -1,12 +1,28 @@
-#include "Replace.hpp"
+#include <iostream>
+#include <string>
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
 
-Replace::Replace(std::string filename) : inFile(filename){
-    this->outFile = this->inFile + ".replace";
-}
+class Replace
+{
+private:
+    std::string inFile;
+    std::string outFile;
 
-Replace::~Replace(){
-}
+public:
+    Replace( std::string filename);
+    ~Replace();
+    void   replace( std::string s1, std::string s2);
+};
 
+Replace::Replace(std::string filename ):inFile(filename)
+    {
+        this->outFile =  this->inFile + ".replace";
+    }
+Replace::~Replace()
+    {
+    }
 void Replace::replace(std::string Word , std::string replace)
     {
         std::ifstream  infl(this->inFile);
@@ -18,11 +34,6 @@ void Replace::replace(std::string Word , std::string replace)
                         std::ofstream ofl(this->outFile);
                         size_t position;
                         position = content.find(Word);
-                            if(position != 0)
-                                {
-                                printf("the word  isnt located in the inputfile \n");
-                                exit(0);
-                    }
                         while(position!=std::string::npos)// max size_t
                         {
                                 content.erase(position, Word.length());
@@ -43,3 +54,14 @@ void Replace::replace(std::string Word , std::string replace)
                 exit(1);
             }
     }
+    
+    int main(int argc , char **argv)
+        {
+        if(argc == 4)
+        {
+            Replace rplc(argv[1]);
+            rplc.replace(argv[2],argv[3]);
+        }
+        else 
+            printf("./a.out xx FileName xx Tofind xx replace\n");
+            }
