@@ -1,9 +1,9 @@
-NAME = 	replace
+NAME = 	fixed
 
 CC = c++  
 CXXFLAGS = -Wall -Wextra -Werror  -g -std=c++98   # -fsanitize=thread -g 
 
-SRC_PS = main.cpp ft_replace.cpp 
+SRC_PS = main.cpp  Fixed.cpp 
 OBJS_C = ${SRC_PS:.cpp=.o} 
 
 all: $(NAME)

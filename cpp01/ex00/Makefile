@@ -1,14 +1,14 @@
 NAME = zb
 
 CC = c++  
-CFLAGS = -Wall -Wextra -Werror  -g -std=c++98   # -fsanitize=thread -g 
+CXXFLAGS = -Wall -Wextra -Werror  -g -std=c++98   # -fsanitize=thread -g 
 
 SRC_PS =main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS_C = ${SRC_PS:.cpp=.o} 
 
 all: $(NAME)
 $(NAME):  $(OBJS_C) 
-	@$(CC)  $(CFLAGS) $(OBJS_C)   -o $(NAME)
+	@$(CC)  $(CXXFLAGS) $(OBJS_C)   -o $(NAME)
 
 
 clean :
