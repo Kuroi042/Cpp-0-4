@@ -2,9 +2,10 @@
 #include <stdio.h>
 #include "Fixed.hpp"
 
+//constractor with value  = 0;
 Fixed::Fixed(void) {
     std::cout << "Default constructor called\n";
-    Value = 0;
+    Value = 0; 
 }
 
 Fixed::Fixed(const Fixed &fixed) {
@@ -12,19 +13,25 @@ Fixed::Fixed(const Fixed &fixed) {
     *this = fixed;
 }
 
+//constarctor for int;
 Fixed::Fixed(const int n_int) {
     std::cout << "Int constructor called\n";
     Value = n_int <<bits ;
+    printf("value  === %d\n",Value);
 }
 
+
+//constarctor for float;
 Fixed::Fixed(const float f_float) {
     std::cout << "Float constructor called\n";
     Value = roundf(f_float * (1 << bits));
 }
 
+//deconstractor
 Fixed::~Fixed() {
     std::cout << "Destructor called\n";
 }
+
 
 Fixed &Fixed::operator=(const Fixed &fixed) {
     std::cout << "Copy assignment operator called\n";
