@@ -2,7 +2,11 @@
 
 int main()
     {
-        ScavTrap scav("jesus", "god");
-        scav.beRepaired(12);
-        scav.guardGate();
+        ScavTrap scav("ScavTrap");
+          scav.attack("zabii");
+    scav.takeDamage(5);
+        // scav.attack()
+
+
+    scav.guardGate();
     }
