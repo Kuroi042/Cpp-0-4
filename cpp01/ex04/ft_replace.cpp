@@ -18,11 +18,11 @@ void Replace::replace(std::string Word , std::string replace)
                         std::ofstream ofl(this->outFile);
                         size_t position;
                         position = content.find(Word);
-                            if(position != 0)
-                                {
-                                printf("the word  isnt located in the inputfile \n");
-                                exit(0);
-                    }
+                    //         if(position != 0)
+                    //             {
+                    //             printf("the word  isnt located in the inputfile \n");
+                    //             exit(0);
+                    // }
                         while(position!=std::string::npos)// max size_t
                         {
                                 content.erase(position, Word.length());

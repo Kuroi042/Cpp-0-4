@@ -3,11 +3,10 @@
 ClapTrap::ClapTrap(std::string name)
 {
     Name = name;
-    std::cout << "Constractor !! " << Name << " is initiated\n";
+    std::cout << "Constractor ClapTrap !! " << Name << " is initiated\n";
     Hit_points = 10;
-    Energy_point = 10;
+    Energy_point = 2;
     Attack_Damage = 0;
-    Max_hp = Hit_points;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &original)
@@ -47,40 +46,33 @@ void ClapTrap::attack(const std::string &target)
 void ClapTrap::beRepaired(unsigned int amount)
 {
 
-    if (Hit_points > 0 ||Energy_point > 0 ){
-            // return;
+    if (Hit_points <= 0 ||Energy_point <= 0 )
+            return;
     if (amount < 0 || amount > INT_MAX)
     {
         std::cout << "be repaired !! input of |Healing value| isnt correct \n";
         return;
     }
-//    std::cout << "beRepaired  !! " << Name << " is being repaired with " << amount << "\n";
+   std::cout << "beRepaired  !! " << Name << " is being repaired with " << amount << "\n";
     Energy_point--;
     Hit_points+=amount;
-        if (Hit_points > Max_hp)
-    {
-        Hit_points = Max_hp;
-    }
-    
      std::cout << "be repaired !! HP left == " << Hit_points << "\n";
     if (Energy_point <= 0)
     {
        std::cout << "be repaired !! the " << Name << " is dead due to low energy point  :( \n";
-            // return;
+            return;
 
-    }
     }
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-//      if (Hit_points <= 0 )
-// {
-//     // std::cout << "Take_damage !! HP left ==     " << Hit_points << "\n";
-//     // std::cout << "Take_damage !! Energy left == " << Energy_point << "\n";
-//     // std::cout << "Take damage !! the " << Name << " is dead :( \n";
-//     return;
-// }
-
+     if (Hit_points <= 0 ||Energy_point <= 0 )
+{
+    // std::cout << "Take_damage !! HP left ==     " << Hit_points << "\n";
+    // std::cout << "Take_damage !! Energy left == " << Energy_point << "\n";
+    // std::cout << "Take damage !! the " << Name << " is dead :( \n";
+    return;
+}
     if (amount < 0 || amount > INT_MAX)
     {
         std::cout << "Take damage !! input of |Damage| isnt correct \n";
@@ -92,15 +84,15 @@ void ClapTrap::takeDamage(unsigned int amount)
         std::cout << "Take damage!!  " << Name << " is taking " << amount << " amount of damage \n";
         Hit_points -= amount;
     }
-        if (Hit_points <= 0 )
-    {
-        Hit_points = 0;
-    // std::cout << "Take damage !! the " << Name << " is dead :( \n";
-    }
-  
-    std::cout << "Take_damage !! HP left     ==     " << Hit_points << "\n";
-    // std::cout << "Take_damage !! Energy left ==     " << Energy_point << "\n";
 
+ if (Hit_points <= 0 ||Energy_point <= 0 )
+{   
+    std::cout << "Take_damage !! HP left     ==     " << Hit_points << "\n";
+    std::cout << "Take_damage !! Energy left ==     " << Energy_point << "\n";
+    std::cout << "Take damage !! the " << Name << " is dead :( \n";
+
+    return;
+}
 //     std::cout << "Take_damage !! HP left == " << Hit_points << "\n";
 
 //    std::cout << "Take_damage !! your Enerypoint left == " << Energy_point << "\n";
@@ -108,5 +100,5 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "deconstractor !!  the  " << Name << " is dead No Resurrection sadly :(  \n";
+    std::cout << "deconstractor !!  the ClapTrap " << Name << " is dead No Resurrection sadly :(  \n";
 }

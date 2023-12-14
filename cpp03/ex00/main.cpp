@@ -3,7 +3,25 @@
 int main()
     {
         ClapTrap  clap("Jesus"); 
-        clap.attack("God");
-        clap.takeDamage(2);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
+        clap.beRepaired(100);
 
+
+        clap.attack("god");
     }

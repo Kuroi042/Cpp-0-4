@@ -6,7 +6,7 @@
 /*   By: mbouderr <mbouderr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 05:34:03 by mbouderr          #+#    #+#             */
-/*   Updated: 2023/12/03 01:17:18 by mbouderr         ###   ########.fr       */
+/*   Updated: 2023/12/13 22:18:59 by mbouderr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void Phonebook::SearchCmd()
     std::cout << " ___________________________________________ \n";
     std::cout << "|     NumContact|First Name| Last Name|  Nickname|\n";
     std::cout << "|----------|----------|----------|----------|\n";
-    int i = 0;
+    unsigned int i = 0;
     while (i < NumContact && i < 8) //check  not exceed 8 for overwriting data
     {
         std::cout << "|" << std::setw(10) << i + 1 << "|"

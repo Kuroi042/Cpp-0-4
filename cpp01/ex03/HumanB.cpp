@@ -28,5 +28,5 @@ const std::string&	HumanB::getName()
 
 void HumanB::setName(std::string Newname)
 {
-     Name = Newname;
+    Name = Newname;
 }
