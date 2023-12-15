@@ -2,8 +2,8 @@
 
 int main()
     {
-    FragTrap Frag("humanFrag");
-    Frag.attack("9lawi");
+    FragTrap Frag("Charaf");
+    Frag.attack("L3DO");
     Frag.takeDamage(5);
     Frag.highFivesGuys();
     }

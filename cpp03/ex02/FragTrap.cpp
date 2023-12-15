@@ -14,14 +14,20 @@ FragTrap::FragTrap( const std::string  NameFg)
     Energy_point = 100;
     Attack_Damage = 30;
 }
+// FragTrap::FragTrap(const FragTrap &original)
+// {
+//     std::cout << "copt constractor is initilized\n";
+//     Name = original.Name;
+//     Hit_points = original.Hit_points;
+//     Energy_point = original.Energy_point;
+//     Attack_Damage = original.Attack_Damage;
+// }
 FragTrap::FragTrap(const FragTrap &original)
 {
-    std::cout << "copt constractor is initilized\n";
-    Name = original.Name;
-    Hit_points = original.Hit_points;
-    Energy_point = original.Energy_point;
-    Attack_Damage = original.Attack_Damage;
+    std::cout << "FragTrap Copy constractor called" << std::endl;
+        *this  = original;
 }
+
 FragTrap &FragTrap::operator=(const FragTrap &original)
 {
     if (this != &original)
