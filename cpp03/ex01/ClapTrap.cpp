@@ -1,6 +1,7 @@
 #include "ClapTrap.hpp"
  ClapTrap::ClapTrap()
  {
+        std::cout << "Constractor ClapTrap !!  is initiated\n";
     Hit_points = 10;
     Energy_point = 5;
     Attack_Damage = 0;

@@ -6,7 +6,7 @@ ScavTrap::ScavTrap() : ClapTrap()
     Energy_point = 50;
     Attack_Damage = 20;
 }
-ScavTrap::ScavTrap( const std::string  NameSv) : ClapTrap(NameSv)
+ScavTrap::ScavTrap( const std::string  NameSv) 
 {
     std::cout << "Constractor Scav !! " << NameSv << " is initiated\n";
     Hit_points = 100;

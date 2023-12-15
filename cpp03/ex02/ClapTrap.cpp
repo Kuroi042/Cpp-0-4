@@ -1,7 +1,8 @@
 #include "ClapTrap.hpp"
  ClapTrap::ClapTrap()
- { 
-     std::cout << "Constractor ClapTrap !!  is initiated\n";
+ {
+            std::cout << "Constractor ClapTrap !!  is initiated\n";
+
     Hit_points = 10;
     Energy_point = 5;
     Attack_Damage = 0;
@@ -67,6 +68,7 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "No more Energy Points left " << Energy_point << std::endl;
         return;
     }
+    // std::cout << "Your HP now is " << Hit_points << std::endl;
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
