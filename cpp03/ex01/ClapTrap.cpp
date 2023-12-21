@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
  ClapTrap::ClapTrap()
  {
-        std::cout << "Constractor ClapTrap !!  is initiated\n";
+     std::cout << "Calling Contractor For ClapTrap !!\n";
     Hit_points = 10;
     Energy_point = 5;
     Attack_Damage = 0;
@@ -11,14 +11,14 @@
 ClapTrap::ClapTrap(std::string name)
 {
     Name = name;
-    std::cout << "Constractor !! " << Name << " is initiated\n";
+    std::cout << Name << " is Called !!\n";
     Hit_points = 10;
     Energy_point = 5;
     Attack_Damage = 0;
     Max_hp = Hit_points;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &original)
+ClapTrap::ClapTrap( ClapTrap &original)
 {
     std::cout << "copt constractor is initilized\n";
     Name = original.Name;
@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(const ClapTrap &original)
     Energy_point = original.Energy_point;
     Attack_Damage = original.Attack_Damage;
 }
-ClapTrap &ClapTrap::operator=(const ClapTrap &original)
+ClapTrap &ClapTrap::operator=( ClapTrap &original)
 {
     if (this != &original)
     {
@@ -38,7 +38,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &original)
     return *this;
 }
 
-void ClapTrap::attack(const std::string &target)
+void ClapTrap::attack( std::string &target)
 {
     if (Energy_point > 0)
     {

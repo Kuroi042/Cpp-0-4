@@ -2,11 +2,8 @@
 
 int main()
     {
-        ScavTrap scav("ScavTrap");
-        scav.attack("oplaaa");
-        ScavTrap hh(scav);
-        
-        hh.attack("hhhhhh");
-        // scav.attack("kakakaka");
-        // scav.guardGate();
+        ScavTrap jesus("Jesus");
+        jesus.attack("GOD");
+        jesus.takeDamage(45);
+        jesus.attack("chi 9lwa");
     }

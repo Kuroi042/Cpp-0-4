@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
- ClapTrap::ClapTrap()
+ ClapTrap::ClapTrap(void)
  { 
-     std::cout << "Constractor ClapTrap !!  is initiated\n";
+     std::cout << "Calling Contractor For ClapTrap !!\n";
     Hit_points = 10;
     Energy_point = 5;
     Attack_Damage = 0;
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(std::string name)
     Max_hp = Hit_points;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &original)
+ClapTrap::ClapTrap( ClapTrap &original)
 {
     std::cout << "copt constractor is initilized\n";
     Name = original.Name;

@@ -1,8 +1,7 @@
 #include "ClapTrap.hpp"
  ClapTrap::ClapTrap()
  {
-            std::cout << "Constractor ClapTrap !!  is initiated\n";
-
+   std::cout << "Calling Contractor For ClapTrap !!\n";
     Hit_points = 10;
     Energy_point = 5;
     Attack_Damage = 0;

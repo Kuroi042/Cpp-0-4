@@ -1,37 +1,41 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap():ClapTrap()
 {
+        std::cout <<"Calling Contractor For ScavTrap !!\n";
+
+        
     Hit_points = 100;
     Energy_point = 50;
     Attack_Damage = 20;
-}
-ScavTrap::ScavTrap( std::string  NameSv) 
-{
-    std::cout << "Constractor Scav !! " << NameSv << " is initiated\n";
-    Hit_points = 100;
-    Energy_point = 50;
-    Attack_Damage = 20;
-}
-ScavTrap::ScavTrap( ScavTrap &original)
-{
-    std::cout << "ScavTrap Copy constractor called" << std::endl;
-        original = *this;
 }
 
+
+ScavTrap::ScavTrap( std::string  NameSv) :ClapTrap(NameSv)
+{
+    std::cout << "ScavTrap "<<NameSv<<" constractor called\n !!";
+    Hit_points = 10;
+    Energy_point = 50;
+    Attack_Damage = 20;
+}
+
+ScavTrap::ScavTrap( ScavTrap &original) :ClapTrap( original)
+{
+    std::cout << "ScavTrap Copy constractor called" << std::endl;
+    Attack_Damage=     original.Attack_Damage;   
+    Energy_point=      original.Energy_point  ; 
+Hit_points =  original.Hit_points ;
+
+}
 ScavTrap &ScavTrap::operator=(ScavTrap &original)
 {
+    if(&original != this){
    std::cout << "Copy assignment operator called" << std::endl;
-    // if (this != &original)
-    // {
-    // *this = original;
-    // }
-    original.Attack_Damage = this->Attack_Damage;
-    std::cout << this->Attack_Damage << "hhh\n";
-    original.Energy_point = this->Energy_point;
-    original.Hit_points = this->Hit_points;
-    original.Max_hp = this->Max_hp;
-    original.Name = this->Name;
+    Attack_Damage = original.Attack_Damage;
+   Energy_point =  original.Energy_point;
+    Hit_points =  original.Hit_points;
+     Name =  original.Name;
+    }
     return *this;
    
 }
@@ -42,6 +46,7 @@ void ScavTrap::attack(const std::string &target)
         std::cout << "Attack ScavTrap !! " << Name << " attacks " << target << " causing " << Attack_Damage << " point of damage\n";
         Energy_point--;
     }
+    
     else
         return;
 }
@@ -51,6 +56,7 @@ void ScavTrap::guardGate(){
 }
 ScavTrap::~ScavTrap()
     {
-    std::cout << "Calling deconstractor !! For the ScavTrap \n";
+    std::cout << "Calling destractor For ScavTrap  \n";
     }
+
 
