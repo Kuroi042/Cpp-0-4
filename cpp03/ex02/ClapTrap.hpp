@@ -14,11 +14,11 @@ class ClapTrap
         int Max_hp;
     public:
         ClapTrap();
-        ClapTrap(const std::string name);
+        ClapTrap( std::string name);
         ~ClapTrap();
-        ClapTrap(const ClapTrap &original);
-        ClapTrap& operator=(const ClapTrap &original);
-        void attack(const std::string& target);
+        ClapTrap( ClapTrap &original);
+        ClapTrap& operator=( ClapTrap &original);
+        void attack( const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 };

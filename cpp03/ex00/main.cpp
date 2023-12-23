@@ -2,8 +2,9 @@
 
 int main()
     {
-            ClapTrap a;
-             ClapTrap b;
-            b=a;
-            b.attack("haha");
+        ClapTrap a("charaf");
+        a.attack("yassine");
+        a.beRepaired(100);
+        a.takeDamage(100);
+        a.attack("sdsd");
     }

@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(std::string name)
     Max_hp = Hit_points;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &original)
+ClapTrap::ClapTrap(ClapTrap &original)
 {
     std::cout << "copt constractor is initilized\n";
     Name = original.Name;
@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(const ClapTrap &original)
     Energy_point = original.Energy_point;
     Attack_Damage = original.Attack_Damage;
 }
-ClapTrap &ClapTrap::operator=(const ClapTrap &original)
+ClapTrap &ClapTrap::operator=( ClapTrap &original)
 {
     if (this != &original)
     {
@@ -40,6 +40,8 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &original)
 
 void ClapTrap::attack(const std::string &target)
 {
+     if(Hit_points <0)
+        return;
     if (Energy_point > 0)
     {
         std::cout << "Attack !! " << Name << " attacks " << target << " causing " << Attack_Damage << " point of damage\n";
@@ -60,6 +62,7 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "be repaired !! input of |Healing value| isnt correct \n";
         return;
     }
+        std::cout <<"be repaired !! " <<Name<< " is repaired with (" <<amount<< ") hp\n";
     Energy_point--;
     Hit_points += amount;
     }
@@ -67,7 +70,6 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "No more Energy Points left " << Energy_point << std::endl;
         return;
     }
-    // std::cout << "Your HP now is " << Hit_points << std::endl;
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {

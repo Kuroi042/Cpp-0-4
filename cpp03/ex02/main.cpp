@@ -2,6 +2,10 @@
 
 int main()
     {
-    FragTrap frag;
-    FragTrap Slap(frag);
+    FragTrap frag("charaf");
+    frag.attack("sds");
+    frag.takeDamage(22222);
+    frag.beRepaired(45);
+    frag.attack("Dsds");
+    frag.highFivesGuys();
     }

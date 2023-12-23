@@ -1,4 +1,5 @@
 #include "ClapTrap.hpp"
+#include <stdio.h>
  ClapTrap::ClapTrap()
  {
      std::cout << "Calling Contractor For ClapTrap !!\n";
@@ -38,9 +39,13 @@ ClapTrap &ClapTrap::operator=( ClapTrap &original)
     return *this;
 }
 
-void ClapTrap::attack( std::string &target)
+void ClapTrap::attack( const std::string &target)
 {
-    if (Energy_point > 0)
+
+    if(Hit_points <0)
+        return;
+
+    if (Energy_point > 0  )
     {
         std::cout << "Attack !! " << Name << " attacks " << target << " causing " << Attack_Damage << " point of damage\n";
         Energy_point--;
@@ -51,15 +56,19 @@ void ClapTrap::attack( std::string &target)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+
     if (Hit_points <= 0 || Energy_point <= 0){
         return;
     }
+    // printf("hitpoint == %d\n", Hit_points);
+    // printf("Energy point == %d\n", Energy_point);
     if (Hit_points > 0 ||Energy_point > 0 ){
     if (amount > INT_MAX)
     {
-        std::cout << "be repaired !! input of |Healing value| isnt correct \n";
+    std::cout <<"Be repaired !! input of |Healing value| isnt correct \n";
         return;
     }
+    std::cout <<"be repaired !! " <<Name<< " is repaired with (" <<amount<< ") hp\n";
     Energy_point--;
     Hit_points += amount;
     }
@@ -67,7 +76,6 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "No more Energy Points left " << Energy_point << std::endl;
         return;
     }
-    // std::cout << "Your HP now is " << Hit_points << std::endl;
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
@@ -80,7 +88,7 @@ void ClapTrap::takeDamage(unsigned int amount)
             return;
 
     }
-    std::cout << "Take damage!!  " << Name << " is taking " << amount << " amount of damage \n";
+    std::cout << "Take damage!!  " << Name << " is taking (" << amount << ") amount of damage \n";
     Hit_points -= amount;
     if (Hit_points <= 0)
     {
@@ -94,5 +102,3 @@ ClapTrap::~ClapTrap()
     std::cout << "Calling destractor For ClapTrap !!\n";
 }
 
-        // ClapTrap *base = new ScavTrap;
-        // base->attack("zb");

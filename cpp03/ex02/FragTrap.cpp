@@ -6,7 +6,7 @@ FragTrap::FragTrap():ClapTrap()
     Energy_point = 100;
     Attack_Damage = 30;
 }
-FragTrap::FragTrap( const std::string  NameFg) :ClapTrap()
+FragTrap::FragTrap(  std::string  NameFg) :ClapTrap(NameFg)
 {
     Name  = NameFg;
     std::cout << "Constractor Frag !! " << Name << " is initiated\n";
@@ -14,19 +14,22 @@ FragTrap::FragTrap( const std::string  NameFg) :ClapTrap()
     Energy_point = 100;
     Attack_Damage = 30;
 }
-FragTrap::FragTrap(const FragTrap &original):ClapTrap()
+FragTrap::FragTrap( FragTrap &original):ClapTrap(original)
 {
+
         std::cout<<"Calling copy constractor for FragTrap\n";
         Hit_points = original.Hit_points;
     Energy_point = original.Energy_point;
     Attack_Damage = original.Attack_Damage;    
+
 }
 
 
-FragTrap &FragTrap::operator=(const FragTrap &original)
+FragTrap &FragTrap::operator=( FragTrap &original)
 {
     if (this != &original)
     {
+        std::cout << "assignment operator called for fragtrap" << std::endl;
         Name = original.Name;
         Hit_points = original.Hit_points;
         Energy_point = original.Energy_point;
@@ -36,6 +39,10 @@ FragTrap &FragTrap::operator=(const FragTrap &original)
 }
 void FragTrap::attack(const std::string &target)
 {
+    if(Hit_points <=0){
+        std::cout<<Name <<" is Low Hp Cant atttack !! \n";
+        return;
+    }
     if (Energy_point > 0)
     {
         std::cout << "Attack FragTrap !! " << Name << " attacks " << target << " causing " << Attack_Damage << " point of damage\n";
@@ -46,6 +53,12 @@ void FragTrap::attack(const std::string &target)
 }
 
 void FragTrap::highFivesGuys(void){
+      if(Hit_points<=0 || Energy_point<=0)
+    {
+         std::cout<<"So Infortunate Frag "<<Name<<" can't make a high five\n";
+        return;
+    }
+    else 
     std::cout<<"FragTrap "<<Name<<" is waving for high five \n";
 
 }

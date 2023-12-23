@@ -40,6 +40,9 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &original)
 
 void ClapTrap::attack(const std::string &target)
 {
+    if(Hit_points <0)
+        return;
+
     if (Energy_point > 0)
     {
         std::cout << "Attack !! " << Name << " attacks " << target << " causing " << Attack_Damage << " point of damage\n";
@@ -57,9 +60,10 @@ void ClapTrap::beRepaired(unsigned int amount)
     if (Hit_points > 0 ||Energy_point > 0 ){
     if (amount > INT_MAX)
     {
-        std::cout << "be repaired !! input of |Healing value| isnt correct \n";
+        std::cout << "Be repaired !! input of |Healing value| isnt correct\n";
         return;
     }
+    std::cout <<"Be repaired !! " <<Name<< " is repaired with (" <<amount<< ") hp\n";
     Energy_point--;
     Hit_points += amount;
     }

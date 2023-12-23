@@ -13,8 +13,8 @@ ScavTrap::ScavTrap():ClapTrap()
 
 ScavTrap::ScavTrap( std::string  NameSv) :ClapTrap(NameSv)
 {
-    std::cout << "ScavTrap "<<NameSv<<" constractor called\n !!";
-    Hit_points = 10;
+    std::cout << "ScavTrap "<<NameSv<<" constractor called\n ";
+    Hit_points = 100;
     Energy_point = 50;
     Attack_Damage = 20;
 }
@@ -30,7 +30,7 @@ Hit_points =  original.Hit_points ;
 ScavTrap &ScavTrap::operator=(ScavTrap &original)
 {
     if(&original != this){
-   std::cout << "Copy assignment operator called" << std::endl;
+   std::cout << "assignment operator called" << std::endl;
     Attack_Damage = original.Attack_Damage;
    Energy_point =  original.Energy_point;
     Hit_points =  original.Hit_points;
@@ -41,9 +41,13 @@ ScavTrap &ScavTrap::operator=(ScavTrap &original)
 }
 void ScavTrap::attack(const std::string &target)
 {
+     if(Hit_points <=0){
+        std::cout<<Name <<" is Low Hp Cant atttack !! \n";
+        return;
+     }
     if (Energy_point > 0)
     {
-        std::cout << "Attack ScavTrap !! " << Name << " attacks " << target << " causing " << Attack_Damage << " point of damage\n";
+        std::cout << "Attack ScavTrap !!" << Name << " attacks " << target << " causing " << Attack_Damage << " point of damage\n";
         Energy_point--;
     }
     
@@ -52,7 +56,13 @@ void ScavTrap::attack(const std::string &target)
 }
 
 void ScavTrap::guardGate(){
-    std::cout<<"Scav "<<Name<<" is now in Gate keeper mode\n";
+    if(Hit_points<=0 || Energy_point<=0)
+    {
+         std::cout<<"Scav "<<Name<<"  Gate keeper mode disable\n";
+        return;
+    }
+else 
+    std::cout<<"Scav "<<Name<<" is now in Gate keeper mode \n";
 }
 ScavTrap::~ScavTrap()
     {
