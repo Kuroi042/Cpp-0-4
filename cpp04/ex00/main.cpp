@@ -2,16 +2,18 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 int main()
+
 {
 const Animal* meta = new Animal();
 const Animal* j = new Dog();
 const Animal* i = new Cat();
-std::cout << j->getType() << "dogg dogg" << std::endl;
-std::cout << i->getType() << "Catt catt" << std::endl;
-i->makesound(); 
-i->makesound(); 
-// j->makesound();
+std::cout << j->getType() << "Dog" << std::endl;
+std::cout << i->getType() << "Cat" << std::endl;
+i->makesound(); //will output the cat sound!
+j->makesound();
 meta->makesound();
+
+
 delete(i);
 delete(j);
 delete(meta);

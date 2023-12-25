@@ -17,10 +17,4 @@ public:
     std::string getType()const;
 };
 
-
-
-
-
-
-
 #endif

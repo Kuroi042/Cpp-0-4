@@ -9,10 +9,12 @@ Cat::~Cat()
 {
      std::cout << "calling Cat destractor Type  == "<< Type<<std::endl;
 }
+
 Cat::Cat(const Cat &original){
 std::cout << "Cat Copy constractor called this type : " << original.Type << std::endl;
     *this =  original;
 }
+
 Cat &Cat::operator=(const Cat &original){
 
 	std::cout << "Cat assignation operator called to assign type : " << original.Type << std::endl;

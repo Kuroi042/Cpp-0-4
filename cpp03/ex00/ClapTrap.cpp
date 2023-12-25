@@ -1,12 +1,12 @@
 #include "ClapTrap.hpp"
  ClapTrap::ClapTrap(void)
- { 
+{ 
      std::cout << "Calling Contractor For ClapTrap !!\n";
     Hit_points = 10;
     Energy_point = 5;
     Attack_Damage = 0;
     Max_hp = Hit_points;
- }
+}
 
 ClapTrap::ClapTrap(std::string name)
 {

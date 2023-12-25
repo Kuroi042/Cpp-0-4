@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap():ClapTrap()
+ScavTrap::ScavTrap()
 {
         std::cout <<"Calling Contractor For ScavTrap !!\n";
 
@@ -11,8 +11,8 @@ ScavTrap::ScavTrap():ClapTrap()
 }
 
 
-ScavTrap::ScavTrap( std::string  NameSv) :ClapTrap(NameSv)
-{
+ScavTrap::ScavTrap(std::string  NameSv):ClapTrap(NameSv)
+    {
     std::cout << "ScavTrap "<<NameSv<<" constractor called\n ";
     Hit_points = 100;
     Energy_point = 50;
@@ -24,7 +24,7 @@ ScavTrap::ScavTrap( ScavTrap &original) :ClapTrap( original)
     std::cout << "ScavTrap Copy constractor called" << std::endl;
     Attack_Damage=     original.Attack_Damage;   
     Energy_point=      original.Energy_point  ; 
-Hit_points =  original.Hit_points ;
+    Hit_points =  original.Hit_points ;
 
 }
 ScavTrap &ScavTrap::operator=(ScavTrap &original)
