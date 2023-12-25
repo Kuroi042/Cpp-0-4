@@ -2,17 +2,18 @@
 
 Cat::Cat()
 {
-    std::cout << "calling Cat constractor\n";
+    Type = "Cat";
+    std::cout << "calling Cat constractor Type  == "<< Type<<std::endl;
 }
 Cat::~Cat()
 {
-    std::cout << "calling Cat deconstractor\n";
+     std::cout << "calling Cat destractor Type  == "<< Type<<std::endl;
 }
-Cat::Cat(Cat &original){
+Cat::Cat(const Cat &original){
 std::cout << "Cat Copy constractor called this type : " << original.Type << std::endl;
     *this =  original;
 }
-Cat &Cat::operator=(Cat &original){
+Cat &Cat::operator=(const Cat &original){
 
 	std::cout << "Cat assignation operator called to assign type : " << original.Type << std::endl;
     if(this!= &original){
@@ -20,10 +21,10 @@ Cat &Cat::operator=(Cat &original){
     }
     return *this;
 }
-void Cat::makesound()
+void Cat::makesound()const
 {
-    std::cout << "Cat "<<Type<<" is saying Miaw Miaw\n";
+    std::cout << "Cat "<<Type<<" is Making a Sound\n";
 }
-Cat::~Cat(){
-    std::cout << "Cat destructor  type : " << Type << std::endl;
+std::string Cat::getType() const{
+        return Type;
 }

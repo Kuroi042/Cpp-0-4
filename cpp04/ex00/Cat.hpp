@@ -9,11 +9,11 @@ class Cat : public Animal
 
     public :
     Cat();
-    Cat(Cat &original);
-    Cat &operator=(Cat &oroginal);
+    Cat(const Cat &original);
+    Cat &operator=(const Cat &oroginal);
     ~Cat();
-    void makesound();
-    std::string getype();
+    void makesound() const;
+    std::string getType() const;
 };
 
 

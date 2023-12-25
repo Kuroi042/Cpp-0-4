@@ -8,16 +8,12 @@ class Dog : public Animal
     private:
 
     public :
-        Dog(){
-         std::cout<<"calling Dog constractor\n";   
-        }
-        ~ Dog(){
-         std::cout<<"calling Deconstractor\n";   
-        }
-        void makesound()
-            {
-                std::cout<<"haw haw\n";
-            }
+        Dog();
+        ~Dog();
+        Dog(const Dog &original);
+        Dog &operator=(const Dog& original);
+        void makesound()const;
+        std::string getType()const;
 };
 
 #endif
