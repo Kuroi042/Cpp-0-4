@@ -1,9 +1,8 @@
-NAME =  FargTrap
-
+NAME =  Hayawan
 CC = c++  
-CXXFLAGS = -Wall -Wextra -Werror  -g -std=c++98   # -fsanitize=thread -g 
+CXXFLAGS = -Wall -Wextra -Werror  -g -std=c++98  
 
-SRC_PS = main.cpp  ClapTrap.cpp FragTrap.cpp
+SRC_PS = main.cpp  Dog.cpp  Cat.cpp 
 OBJS_C = ${SRC_PS:.cpp=.o} 
 
 all: $(NAME)
