@@ -9,7 +9,7 @@ const Animal* j = new Dog();
 const Animal* i = new Cat();
 std::cout << j->getType() << "Dog" << std::endl;
 std::cout << i->getType() << "Cat" << std::endl;
-i->makesound(); //will output the cat sound!
+i->makesound(); 
 j->makesound();
 meta->makesound();
 
