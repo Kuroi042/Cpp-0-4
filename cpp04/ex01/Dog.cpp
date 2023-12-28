@@ -1,21 +1,23 @@
 #include "Dog.hpp"
 
-Dog::Dog(){
-    Type  = "Dog";
+Dog::Dog():Animal("Dog"){
+
     brain =  new Brain();
-    std::cout<<"Calling Dog constractor Type == "<<Type<<std::endl;
+    
+    std::cout<<"Calling Dog constractor"<<std::endl;
 }
 
 Dog::Dog(const Dog &original) : Animal(original){
-std::cout << "Dog copy constructor type : " << original.Type << std::endl;
+std::cout << "Dog copy constructor " << std::endl;
     brain = new Brain(*(original.brain));
+    *this = original;
 }
 
 Dog &Dog::operator=(const Dog &original){
-std::cout << "Dog assignment op constructor type : " << original.Type << std::endl;
+std::cout << "Dog assignment op constructor "<< std::endl;
     if(this!= &original){
-        Type =  original.getType();
         *brain= *(original.brain);
+        Type =  original.getType();
     }
     return *this;
 }
@@ -26,6 +28,10 @@ Dog::~Dog(){
 }
 
 void Dog::makesound()const{
-	std::cout << "Dog type: makes a sound haw haw" << std::endl;
+	std::cout << "Dog  haw haw" << std::endl;
+}
+
+Brain& Dog::getBrain()const{
+    return *this->brain;
 }
  

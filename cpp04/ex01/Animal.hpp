@@ -10,6 +10,7 @@ protected:
     std::string Type;
 public:
     Animal();
+    Animal(std::string type);
     Animal(const Animal &original);
     Animal &operator=(const Animal &original);
     virtual void makesound() const;

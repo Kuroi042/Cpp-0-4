@@ -2,8 +2,11 @@
 
 
     Animal::Animal(){
-            Type =  "Empty";
         std::cout<<"calling Animal default constractor  \n";
+    }
+    Animal::Animal(std::string type){
+            Type  = type;
+            std::cout << "Animal " <<  Type << " is  constructed" << std::endl;
     }
 
     Animal::Animal(const Animal &original){

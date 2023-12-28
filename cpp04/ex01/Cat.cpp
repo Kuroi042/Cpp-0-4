@@ -2,35 +2,39 @@
 
 Cat::Cat()
 {
-    std::cout << "calling Cat constractor Type  == "<< Type<<std::endl;
     Type = "Cat";
-    brain = new Brain();
+    std::cout << "calling Cat constractor "<<std::endl;
+    this->brain = new Brain();
 }
 
 Cat::~Cat()
 {
     delete brain;
-     std::cout << "calling Cat destractor Type  == "<< Type<<std::endl;
+     std::cout << "calling Cat destractor   "<<std::endl;
 }
 
 Cat::Cat(const Cat& original) : Animal(original) {
     std::cout << "Cat: copy constructor called" << std::endl;
-
-        brain = new Brain(*(original.brain));
+         this->brain = new Brain(); // alocate new brain object fot the current Cat
+    *this = original;
 }
 
 Cat &Cat::operator=(const Cat &original){
-
-	std::cout << "Cat assignation operator called to assign type : " << original.Type << std::endl;
+	std::cout << "Cat assignation operator called to assign  "<< std::endl;
     if(this!= &original){
-        Type =  original.getType();
-        *brain= *(original.brain);
+        *brain= *original.brain;
+        Type =  original.Type;
     }
     return *this;
 }
 
+
+Brain& Cat::getBrain()const{
+    return *this->brain;
+}
 void Cat::makesound() const
 {
-    std::cout << "Cat "<<Type<<" is Making a Sound <<Miaw>>\n";
+    std::cout << "Cat  Miaw\n";
 }
- 
+    
+
