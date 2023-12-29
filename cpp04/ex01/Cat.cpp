@@ -13,9 +13,9 @@ Cat::~Cat()
      std::cout << "calling Cat destractor   "<<std::endl;
 }
 
-Cat::Cat(const Cat& original) : Animal(original) {
+Cat::Cat(const Cat& original)  {
     std::cout << "Cat: copy constructor called" << std::endl;
-        //  this->brain = new Brain(); // alocate new brain object fot the current Cat
+          this->brain = new Brain(); // alocate new brain object fot the current Cat
     *this = original;
 }
 
@@ -23,8 +23,8 @@ Cat &Cat::operator=(const Cat &original){
 	std::cout << "Cat assignation operator called to assign  "<< std::endl;
 
     if(this!= &original){
-            delete brain;
-             this->brain = new Brain();
+            // delete brain;
+            //  this->brain = new Brain();
         for (int i = 0 ; i < 100; i++)
             this->brain->setIdeas(original.brain->GetIdeas(i),i);
         Type =  original.Type;
