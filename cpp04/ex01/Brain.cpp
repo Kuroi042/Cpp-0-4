@@ -4,10 +4,10 @@ Brain::Brain(){
     std::cout<< "initializing brain constractor\n";
     int i = 0;
     while(i<100)
-        {
+      {
             this->ideas[i] = "deafult idea";
-    i++;
-               }
+             i++;
+    }
 } 
 
 Brain::~Brain(){

@@ -16,8 +16,8 @@ std::cout << "Dog copy constructor " << std::endl;
 Dog &Dog::operator=(const Dog &original){
 std::cout << "Dog assignment op constructor "<< std::endl;
     if(this!= &original){
-        *brain= *(original.brain);
-        Type =  original.getType();
+        *brain= *original.brain;
+        Type =  original.Type;
     }
     return *this;
 }
